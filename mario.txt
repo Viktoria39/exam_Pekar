@@ -3,6 +3,20 @@ using namespace std;
 
 int main()
 {
+	 int height, num;
+    cout << "Enter pyramid height (max = " << NUMBER << ") = ";
+    while (true)
+    {
+        cin >> height;
+        if (!cin || height > NUMBER || height <= 0)
+        {
+            cout << "Incorrect input. Please re-enter: ";
+            cin.clear();
+            while (cin.get() != '\n');
+        }
+        else
+            break;
+    }
 	
 	return 0;
 }
