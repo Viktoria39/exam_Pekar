@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+void OneTriangle(size_t height);
+
 int main()
 {
 	 int height, num;
@@ -31,4 +33,23 @@ int main()
     }
 	
 	return 0;
+}
+
+void OneTriangle(size_t height)
+{
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < height; j++)
+        {
+            if (i + j >= height - 1)
+            {
+                cout << "# ";
+            }
+            else
+            {
+                cout << "  ";
+            }
+        }
+        cout << endl;
+    }
 }
