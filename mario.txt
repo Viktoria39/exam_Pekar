@@ -1,0 +1,88 @@
+#include <iostream>
+using namespace std;
+
+void OneTriangle(size_t height);                                         //Prototype function №1
+void TwoTriangle(size_t height);                                         //Prototype function №2
+
+int main()
+{
+	 int height, num;
+    cout << "Enter pyramid height (max = " << NUMBER << ") = ";          //Height input
+    while (true)
+    {
+        cin >> height;
+        if (!cin || height > NUMBER || height <= 0)                      //Check whether the user has entered a height in the range
+        {
+            cout << "Incorrect input. Please re-enter: ";
+            cin.clear();
+            while (cin.get() != '\n');
+        }
+        else
+            break;
+    }
+	
+	cout << "Enter construction option (1 and 2) = ";                    //Input number 1 or 2
+	while (true)                                                         //Check if the user entered the correct number 1 or 2
+    {
+        cin >> num;
+        if (num == 1 || num == 2)
+            break;
+        else
+            cout << "Incorrect input. Please re-enter: ";
+        cin.clear();
+        while (cin.get() != '\n');
+    }
+	
+	 if (num == 1)                                                       //Output Pyramid1
+    {
+        OneTriangle(height);
+    }
+    else if (num == 2)                                                   //Output Pyramid2
+    {
+        TwoTriangle(height);
+    }
+	
+	return 0;
+}
+
+void OneTriangle(size_t height)                                          //Functions №1
+{
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < height; j++)
+        {
+            if (i + j >= height - 1)
+            {
+                cout << "# ";
+            }
+            else
+            {
+                cout << "  ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void TwoTriangle(size_t height)                                          //Functions №2
+{
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < height; j++)
+        {
+            if (i + j >= height - 1)
+                cout << "#";
+            else
+                cout << " ";
+        }
+        cout << " ";
+        for (int j = 0; j < height; j++)
+        {
+            if (i >= j)
+                cout << "#";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+}
